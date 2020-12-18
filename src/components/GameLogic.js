@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Header from './Header'
-import CardContainer from './CardContainer'
+import RegionSidebar from './RegionSidebar'
+import MainContainer from './MainContainer'
 
 const GameLogic = () => {
     const [score, setScore] = useState(0);
@@ -27,7 +28,7 @@ const GameLogic = () => {
     return(
         <div>
             <Header score={score} highScore={highScore} />
-            <CardContainer score={score} highScore={highScore} updateScore={updateScore} />
+            <MainContainer score={score} highScore={highScore} updateScore={updateScore} />
         </div>
     )
 }
