@@ -9,6 +9,7 @@ const Flag = (props) => {
             alt={props.country}
             onClick={e => props.updateScore(e)} 
             ></img>
+            <p className='country'>{props.country}</p>
         </div>
     )
 }

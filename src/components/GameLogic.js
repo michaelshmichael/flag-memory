@@ -27,7 +27,7 @@ const GameLogic = () => {
     return(
         <div>
             <Header score={score} highScore={highScore} />
-            <CardContainer updateScore={updateScore} />
+            <CardContainer score={score} highScore={highScore} updateScore={updateScore} />
         </div>
     )
 }

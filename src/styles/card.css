@@ -15,8 +15,13 @@
 }
 
 .flag-image {
-    max-width: 80%;
+    margin-left: 15%;
+    max-width: 70%;
     height: auto;
+}
+
+.country {
+    text-align: center;
 }
 
 
