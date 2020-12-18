@@ -1,0 +1,22 @@
+.flag-container {
+    display: grid;
+    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 33% 33% 33%;
+    width: 800px;
+    height: 600px;
+    border: 5px black solid;
+    background-color: rgb(245, 168, 168);
+}
+
+.card {
+    align-self: center;
+    justify-self: center;
+    
+}
+
+.flag-image {
+    max-width: 80%;
+    height: auto;
+}
+
+
