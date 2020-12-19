@@ -72,6 +72,7 @@ const GameLogic = () => {
         {src: pk, country: 'Pakistan'},
         {src: vn, country: 'Vietnam'}
     ]
+
     const [selectedContinent, setSelectedContinent] = useState(europeanCountries)
     const [cards, setCards] = useState(selectedContinent)
     const [score, setScore] = useState(0);
@@ -79,25 +80,20 @@ const GameLogic = () => {
     const [newArray, setNewArray] = useState([])
 
     const updateScore = (e) => {
-        if(newArray.includes(e.target.alt)){
+        console.log(e.target.id)
+        if(newArray.includes(e.target.id)){
             setScore(0)
             setNewArray([])
             alert('Game Over')
         } else {
             setScore(score+1)
-            setNewArray((newArray) => [...newArray, e.target.alt])
+            setNewArray((newArray) => [...newArray, e.target.id])
         }
     }
 
     const changeContinentResetScore = () => {
         setScore(0)
     }
-
-    useEffect(() => {
-        if(score > highScore){
-            setHighScore(score)
-        }
-    },[score, highScore])
 
     const createRandomIndex = () => {
         return Math.floor(Math.random() * 7);
@@ -116,6 +112,11 @@ const GameLogic = () => {
     }
 
     useEffect(() => {
+        //Updates Score
+        if(score > highScore){
+            setHighScore(score)
+        }
+        //Reshuffles cards
         let randomCards = makeRandomArray()
         setCards(randomCards)
     }, [score, highScore, selectedContinent])

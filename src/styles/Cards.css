@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Dosis', sans-serif;
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -9,7 +9,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(16, 205, 252);
+    background-color: rgb(10, 97, 228);
     padding-left: 15px;
     height: 90px;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/* MAIN BODY CONTAINER - SIDEBAR AND CARD CONTAINER*/
+/* MAIN BODY CONTAINER*/
 
 .main-body-container {
     display: flex;
@@ -44,10 +44,10 @@ body {
 .flag-container {
     display: grid;
     grid-template-rows: 50% 50%;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 3fr 3fr 3fr;
     height: 520px;
+    background-color: rgb(76, 203, 253);
     border-top: 3px black solid;
-    background-color: rgb(130, 248, 242);
 }
 
 
@@ -57,17 +57,27 @@ body {
     align-self: center;
     justify-self: center;
     background-color: rgb(76, 203, 253);
-    
+    height: 100%;
+}
+
+.card:hover {
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(46, 159, 204);
+    height: 100%;
 }
 
 .flag-image {
-    margin-left: 30%;
-    max-width: 40%;
+    margin: auto 20% auto 20%;
+    max-width: 60%;
     height: auto;
+    pointer-events: none;
 }
 
 .country {
+    font-weight: 600;
     text-align: center;
+    pointer-events: none;
 }
 
 
