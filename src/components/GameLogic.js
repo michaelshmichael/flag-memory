@@ -19,6 +19,10 @@ const GameLogic = () => {
         }
     }
 
+    const changeContinentResetScore = () => {
+        setScore(0)
+    }
+
     useEffect(() => {
         if(score > highScore){
             setHighScore(score)
@@ -28,7 +32,10 @@ const GameLogic = () => {
     return(
         <div>
             <Header score={score} highScore={highScore} />
-            <MainContainer score={score} highScore={highScore} updateScore={updateScore} />
+            <MainContainer score={score} 
+            highScore={highScore} 
+            updateScore={updateScore} 
+            changeContinentResetScore={changeContinentResetScore} />
         </div>
     )
 }
