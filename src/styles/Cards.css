@@ -2,10 +2,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* HEADER */
 .header {
     display: flex;
     flex-direction: row;
-    background-color: rgb(16, 205, 252)
+    background-color: rgb(16, 205, 252);
+    padding-left: 15px;
 }
 
 .title {
@@ -20,6 +23,8 @@ body {
     width: 50%;
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* MAIN BODY CONTAINER - SIDEBAR AND CARD CONTAINER*/
 
 .main-body-container {
     display: flex;
@@ -27,8 +32,8 @@ body {
 }
 
 .region-sidebar {
-    background-color:rgb(66, 216, 128);
-    width: 300px;
+    background-color:rgb(60, 63, 63);
+    width: 185px;
 }
 
 .flag-container {
@@ -41,6 +46,9 @@ body {
     background-color: rgb(245, 168, 168);
 }
 
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* INDIVIDUAL CARDS */
 .card {
     align-self: center;
     justify-self: center;

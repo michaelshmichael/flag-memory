@@ -1,4 +1,5 @@
 import GameLogic from './components/GameLogic'
+import './styles/Cards.css'
 
 function App() {
   return (

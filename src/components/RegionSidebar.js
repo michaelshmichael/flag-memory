@@ -1,16 +1,31 @@
 import React from 'react'
-import '../styles/card.css'
+import Dropdown from 'react-bootstrap/dropdown'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const RegionSidebar = (props) => {
     return(
         <div className='region-sidebar'>
-            <h1>Region Sidebar</h1>
-            <h2 id='Europe' onClick={e => props.changeContinent(e)}>
-                Europe
-            </h2>
-            <h2 id='Africa' onClick={e => props.changeContinent(e)}>
-                Africa
-            </h2>
+            <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Dropdown Button
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <Dropdown.Item
+                        type="button"
+                        id='Europe' 
+                        onClick={e => props.changeContinent(e)}>
+                        Europe
+                    </Dropdown.Item>
+                    <Dropdown.Item 
+                        class="dropdown-item" 
+                        type="button"
+                        id='Africa' 
+                        onClick={e => props.changeContinent(e)}>
+                        Africa
+                    </Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </div>
     )
 }

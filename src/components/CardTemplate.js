@@ -1,7 +1,6 @@
 import React from 'react'
-import '../styles/card.css'
 
-const Flag = (props) => {
+const CardTemplate = (props) => {
     return(
         <div className='card'>
             <img className='flag-image' 
@@ -14,4 +13,4 @@ const Flag = (props) => {
     )
 }
 
-export default Flag
+export default CardTemplate

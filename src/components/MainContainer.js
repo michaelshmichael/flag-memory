@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import RegionSidebar from './RegionSidebar'
-import Flag from './Flag'
-import '../styles/card.css'
+import CardTemplate from './CardTemplate'
+
 import uniqid from 'uniqid'
 import ad from '../images/ad.png'
 import am from '../images/am.png'
@@ -97,7 +97,7 @@ const MainContainer = (props) => {
         <RegionSidebar changeContinent={changeContinent}/>
             <div className='flag-container'>
                 {cards.map((card) => (
-                    <Flag key={uniqid()} 
+                    <CardTemplate key={uniqid()} 
                     flag={card.src} 
                     country={card.country} 
                     updateScore={props.updateScore}

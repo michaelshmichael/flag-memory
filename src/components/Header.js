@@ -1,8 +1,10 @@
 import React from 'react'
+import { Globe } from 'react-bootstrap-icons'
 
 const Header = (props) => {
     return(
         <div className='header'>
+            <Globe margin-top='15px'/>
             <div className='title'>
                 <h1>Veximemory</h1>
             </div>
