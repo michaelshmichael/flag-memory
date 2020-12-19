@@ -29,6 +29,12 @@ const Header = (props) => {
                         onClick={e => props.changeContinent(e)}>
                         Africa
                     </Dropdown.Item>
+                    <Dropdown.Item
+                        type="button"
+                        id='Asia' 
+                        onClick={e => props.changeContinent(e)}>
+                        Asia
+                    </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             </div>

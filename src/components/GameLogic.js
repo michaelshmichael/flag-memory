@@ -25,6 +25,16 @@ import na from '../images/na.png'
 import sn from '../images/sn.png'
 import so from '../images/so.png'
 
+import af from '../images/af.png'
+import bn from '../images/bn.png'
+import bt from '../images/bt.png'
+import hk from '../images/hk.png'
+import jp from '../images/jp.png'
+import kg from '../images/kg.png'
+import kh from '../images/kh.png'
+import pk from '../images/pk.png'
+import vn from '../images/vn.png'
+
 const GameLogic = () => {
     const europeanCountries = [
         {src: ad, country: 'Andorra'},
@@ -50,6 +60,17 @@ const GameLogic = () => {
         {src: na, country: 'Namibia'},
         {src: sn, country: 'Senegal'},
         {src: so, country: 'Somalia'}
+    ]
+    const asianCountries = [
+        {src: af, country: 'Afghanistan'},
+        {src: bn, country: 'Brunei'},
+        {src: bt, country: 'Bhutan'},
+        {src: hk, country: 'Hong Kong'},
+        {src: jp, country: 'Japan'},
+        {src: kg, country: 'Kyrgyzstan'},
+        {src: kh, country: 'Cambodia'},
+        {src: pk, country: 'Pakistan'},
+        {src: vn, country: 'Vietnam'}
     ]
     const [selectedContinent, setSelectedContinent] = useState(europeanCountries)
     const [cards, setCards] = useState(selectedContinent)
@@ -108,6 +129,10 @@ const GameLogic = () => {
                 break
             case 'Europe':
                 setSelectedContinent(europeanCountries)
+                changeContinentResetScore()
+                break
+            case 'Asia':
+                setSelectedContinent(asianCountries)
                 changeContinentResetScore()
         }
     }
