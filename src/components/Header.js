@@ -7,10 +7,14 @@ const Header = (props) => {
     return(
         <div className='header'>
             <div className='title'>
-                <Globe style={{fontSize: '45px', marginRight:'15px'}}/>
-                <h1>Veximemory</h1>
+                <Globe style={{fontSize: '45px', marginRight:'15px', marginTop: '5px'}}/>
+                <a href='./' style={{fontSize: '35px', marginBottom: '10px', color: 'white'}}>Veximemory</a>
+                
             </div>
-            <div className='selectContinent'>
+            <div className='how-to-play' style={{paddingBottom: '10px', fontSize: '24px'}}>
+                <a href= './howtoplay' style={{color: 'white'}}>How To Play</a>
+            </div>
+            <div className='select-continent'>
             <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                     Select Continent
@@ -40,8 +44,8 @@ const Header = (props) => {
             </div>
 
             <div className='scores'>
-            <h2 style={{marginRight: '15px'}}>Score: {props.score}</h2>
-            <h2>High Score: {props.highScore}</h2>
+                <h2 style={{marginRight: '15px'}}>Score: {props.score}</h2>
+                <h2>High Score: {props.highScore}</h2>
             </div>
         </div>
     )

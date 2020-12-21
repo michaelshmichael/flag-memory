@@ -7,7 +7,6 @@ body {
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
     background-color: rgb(10, 97, 228);
     padding-left: 15px;
@@ -18,10 +17,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 50%;
+    width: 300px;
 }
 
-.selectContinent {
+.how-to-play {
+    padding-top: 10px;
+    width: 200px;
+}
+
+.select-continent {
+    padding-top: 6px;
     width: 400px;
 }
 
