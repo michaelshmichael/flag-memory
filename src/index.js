@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Header from './components/Header';
+import MainContainer from './components/MainContainer';
+import Instructions from './components/InstructionsContainer'
+
+import {Route, BrowserRouter as Router} from 'react-router-dom'
+import './styles/Cards.css'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+      <Route path='/' exact component={MainContainer} />
+      <Route path='/instructions' component={Instructions} />
+  </Router>,
   document.getElementById('root')
 );
 
