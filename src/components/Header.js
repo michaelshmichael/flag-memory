@@ -11,8 +11,8 @@ const Header = (props) => {
                 <a href='./' style={{fontSize: '35px', marginBottom: '10px', color: 'white'}}>Veximemory</a>
                 
             </div>
-            <div className='how-to-play' style={{paddingBottom: '10px', fontSize: '24px'}}>
-                <a href= './howtoplay' style={{color: 'white'}}>How To Play</a>
+            <div className='instructions' style={{paddingBottom: '10px', fontSize: '24px'}}>
+                <a href= './instructions' style={{color: 'white'}}>Instructions</a>
             </div>
             <div className='select-continent'>
             <Dropdown>
