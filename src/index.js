@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
 import MainContainer from './components/MainContainer';
 import Instructions from './components/InstructionsContainer'
 

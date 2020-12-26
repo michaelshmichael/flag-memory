@@ -77,25 +77,36 @@ const MainContainer = () => {
     const [cards, setCards] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
-    const [oldArray, setOldArray] = useState(selectedContinent);
-    const [newArray, setNewArray] = useState([]);
-
+    const [topScore, setTopScore] = useState(8);
+    const [clickedArray, setClickedArray] = useState([]);
+    const [unclickedArray, setUnclickedArray] = useState(selectedContinent);
+    
 
     const updateScore = (e) => {
         console.log(e.target.id)
-        if(newArray.includes(e.target.id)){
-            console.log(e.target.id)
-            setScore(0)
-            setNewArray([])
-            alert('Game Over')
-        } else {
-            setScore(score+1)
-            setNewArray((newArray) => [...newArray, e.target.id])
-            setOldArray(oldArray.filter(element => element.country !== e.target.id))
-            console.log(oldArray)
-        }
+            if(clickedArray.includes(e.target.id)){
+                resetGameStateValues()
+                alert('Game Over')
+            } else {
+                setScore(score+1)
+                if(score === topScore){
+                    // need highScore functionality here
+                    resetGameStateValues()
+                    alert('You won')
+                } else {
+                    setClickedArray((newArray) => [...newArray, e.target.id])
+                    setUnclickedArray(unclickedArray.filter(element => element.country !== e.target.id))
+                }
+            }
     }
 
+    const resetGameStateValues = () => {
+        setScore(0)
+        setClickedArray([])
+        setUnclickedArray(selectedContinent)
+        setCards([])
+    }
+    
     const changeContinentResetScore = () => {
         setScore(0)
     }
@@ -104,40 +115,43 @@ const MainContainer = () => {
         return Math.floor(Math.random() * selectedContinent.length);
     }
 
-    const makeRandomArray = () => {
-        let randomCards = []
-        
-        while(randomCards.length < 5) {
+    const generateInitialRandomArray = () => {
+        let initialRandomArray = [];
+        while(initialRandomArray.length < 5) {
             let randomIndex = createRandomIndex()
             let randomCard = selectedContinent[randomIndex]
-            if(randomCards.includes(randomCard) === false){
-                randomCards.push(randomCard)
+            if(initialRandomArray.includes(randomCard) === false){
+                initialRandomArray.push(randomCard)
             }
         }
+        return initialRandomArray
+    }
 
-        let randomIndex = Math.floor(Math.random() * oldArray.length);
-        let randomInsertionIndex = Math.floor(Math.random() * 6);
-        let unclickedCard = oldArray[randomIndex];
+    const generateUnclickedCard = () => {
+        let randomIndex = Math.floor(Math.random() * unclickedArray.length);
+        let unclickedCard = unclickedArray[randomIndex];
+        return unclickedCard;
+    }; 
 
-        if(randomCards.includes(unclickedCard) === false){
-            randomCards.splice(randomInsertionIndex , 0 , unclickedCard);
-            console.log('A')
-        } else {
-            console.log('B')
-            makeRandomArray();
+    const generateCombinedRandomArray = () => {
+        let initialRandomArray = generateInitialRandomArray();
+        let unclickedCard = generateUnclickedCard();
+
+        while(initialRandomArray.includes(unclickedCard)){
+            initialRandomArray = generateInitialRandomArray();
+            unclickedCard = generateUnclickedCard();
         }
-
-        return randomCards
+        let randomInsertionIndex = Math.floor(Math.random() * 6);
+        initialRandomArray.splice(randomInsertionIndex, 0, unclickedCard)
+        return initialRandomArray
     }
 
     useEffect(() => {
-        //Updates Score
         if(score > highScore){
             setHighScore(score)
         }
-        //Reshuffles cards
-        let randomCards = makeRandomArray()
-        setCards(randomCards)
+        let combinedRandomArray = generateCombinedRandomArray()
+        setCards(combinedRandomArray)
     }, [score, highScore, selectedContinent])
 
     const changeContinent = (continent) => {
@@ -145,18 +159,21 @@ const MainContainer = () => {
         switch(continent.target.id){
             case 'Africa':
                 setSelectedContinent(africanCountries)
-                setOldArray(africanCountries)
+                setUnclickedArray(africanCountries)
                 changeContinentResetScore()
+                setTopScore(11)
                 break
             case 'Europe':
                 setSelectedContinent(europeanCountries)
-                setOldArray(europeanCountries)
+                setUnclickedArray(europeanCountries)
                 changeContinentResetScore()
+                setTopScore(8)
                 break
             case 'Asia':
                 setSelectedContinent(asianCountries)
-                setOldArray(asianCountries)
+                setUnclickedArray(asianCountries)
                 changeContinentResetScore()
+                setTopScore(8)
         }
     }
 
@@ -168,8 +185,7 @@ const MainContainer = () => {
             <CardContainer score={score}
                 cards={cards} 
                 highScore={highScore} 
-                updateScore={updateScore} 
-                changeContinentResetScore={changeContinentResetScore} />
+                updateScore={updateScore}/>
         </div>
     )
 }
